@@ -38,7 +38,6 @@
     @else
         <link rel="icon" href="{{ asset(config('app.logo_favicon'))}}" type="image/png">
     @endif
-
 <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('modules/events/event_templates/default/lib.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/events/event_templates/default/template.css') }}">
@@ -47,6 +46,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/iguider/css/iGuider.css') }}"/>
     <link rel="stylesheet" href="{{ asset('vendor/iguider/themes/bootstrap/iGuider-theme-bootstrap.css') }}"/>
     <link rel="stylesheet" href="{{ asset('vendor/intl-tel-input/build/css/intlTelInput.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('modules/themes/default/css/fontawesome-all.min.css') }}"/>
 
     @php
         $theme_color = "#316abc";
@@ -187,6 +187,11 @@
 @endphp
 <div id="description" class="cards-2">
     <div class="container">
+        <h3>
+          <i class="fa fa-calendar-alt"></i>
+          {{ \Carbon\Carbon::parse($event->start_date)->toFormattedDateString() }} - {{ \Carbon\Carbon::parse($event->end_date)->toFormattedDateString() }}
+          <i class="fa fa-clock"></i> {{ \Carbon\Carbon::parse($event->end_date)->format('h:i A') }}
+        </h3>
         <h2 class="h2"><span class="red">@lang('DESCRIPTION')</span></h2>
         <p>
             {!! $event->description !!}

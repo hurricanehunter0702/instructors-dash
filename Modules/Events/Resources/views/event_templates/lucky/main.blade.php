@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/iguider/css/iGuider.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/iguider/themes/bootstrap/iGuider-theme-bootstrap.css') }}" />
     <link rel="stylesheet" href="{{ asset('vendor/intl-tel-input/build/css/intlTelInput.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('modules/themes/default/css/fontawesome-all.min.css') }}"/>
     @php
          
          $theme_color = "#2f1c8e";
@@ -322,6 +323,11 @@
      <!-- Description -->
      <div id="description" class="cards-2" style="clear: both;">
         <div class="container">
+            <h3>
+              <i class="fa fa-calendar-alt"></i>
+              {{ \Carbon\Carbon::parse($event->start_date)->toFormattedDateString() }} - {{ \Carbon\Carbon::parse($event->end_date)->toFormattedDateString() }}
+              <i class="fa fa-clock"></i> {{ \Carbon\Carbon::parse($event->end_date)->format('h:i A') }}
+            </h3>
             <h2 class="h2"><span class="red">@lang('DESCRIPTION')</span></h2>
             {!! $event->description !!}
             @if(count($event->ticket_items) > 0)

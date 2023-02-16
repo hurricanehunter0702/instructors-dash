@@ -14,4 +14,6 @@
 Route::group(['prefix' => 'options', 'as' => 'options.'], function() {
     Route::get('/confirm-page', 'ConfirmPageController@index')->name("confirm-page.index");
     Route::post("/confirm-page", "ConfirmPageController@store")->name("confirm-page.store");
+    Route::get('/calendar-setting', 'CalendarSettingController@index')->name("calendar-setting.index");
+    Route::put('/calendar-setting', 'CalendarSettingController@update')->name("calendar-setting.update");
 });

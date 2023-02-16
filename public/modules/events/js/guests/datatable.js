@@ -348,7 +348,7 @@ $(function () {
                     if (data.items.length) {
                         var len = data.items.length;
                         for (let i = 0; i < len; i = i + 1) {
-                            selectData += `<option value="${data.items[i].id}">${data.items[i].name}</option>`;
+                            selectData += `<option value="${data.items[i].id}">${data.items[i].name} ${moment(data.items[i].start_date).format("YYYY-MM-DD HH:mm:ss")}</option>`;
                         }
                     } else {
                         selectData += `<option value="">Select...</option>`;
